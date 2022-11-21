@@ -1,0 +1,14 @@
+# testing requirements
+pytest
+pytest-cov
+
+# code quality
+black
+flake8
+
+# package management
+bump2version
+twine
+
+# documentation
+jupyter-book

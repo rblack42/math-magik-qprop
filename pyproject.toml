@@ -1,0 +1,28 @@
+# pyproject.toml
+project]
+name = "mmqprop"
+version = "0.1.0"
+authors = [
+	{"name="Roie R. Black", email="roie.black@gmail.com" },
+]
+description = "Python implementation of Drela's QProp program"
+readme = "README.rst"
+requires-python = "^3.10.8"
+classifiers = [
+	'Development Status :: 4 - Beta',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: BSD License',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.9',
+	'Programming Language :: Python :: 3.10',
+    'Topic :: Software Development :: Testing',
+]
+
+[project.urls]
+"Homepage" = "https://github.com/rblack42/math-magik-qprop"
+"Docs" = "https:\\rblack42.github.io/math-magik-qprop"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
