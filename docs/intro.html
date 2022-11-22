@@ -52,6 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Project Setup" href="content/start/project-setup.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -88,6 +89,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/lpp.gif" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Math Magik QProp</h1>
@@ -106,7 +112,65 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/start/project-setup.html">
+   Project Setup
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Development Journal
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/development/initial-application.html">
+   Initial Application
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/development/testing-setup.html">
+   Testing Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  User's Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/guide/command-line.html">
+   Command-Line Usage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/appendix/installing-basic-tools.html">
+   Basic Development Tools
+  </a>
+ </li>
+</ul>
+
     </div>
 </nav></div>
         <div class="bd-sidebar__bottom">
@@ -287,18 +351,44 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="math-magik-qprop">
 <h1>Math Magik QProp<a class="headerlink" href="#math-magik-qprop" title="Permalink to this headline">#</a></h1>
 <p>This project is developing a <em>Python</em> version of Mark Drela’s <strong>qprop</strong>
-<span id="id1">[<a class="reference internal" href="markdown.html#id3" title="Mark Drela. Qprop - propeller/windmil analysis and design. URL: https://web.mit.edu/drela/Public/web/qprop/ (visited on 2022-11-21).">Dre</a>]</span> program originally written in Fortran. Since Python is much
+<span id="id1">[<a class="reference internal" href="content/bibliography.html#id2" title="Mark Drela. Qprop - propeller/windmil analysis and design. URL: https://web.mit.edu/drela/Public/web/qprop/ (visited on 2022-11-21).">Dre</a>]</span> program originally written in Fortran. Since Python is much
 more approachable, I decided to work through the program logic, and recreate
-most of the code using modern <em>Pythin</em> tools. FOr reference, the original
+most of the code using modern <em>Python</em> tools. For reference, the original
 Fortran code is included here. That code can be compiled using <em>GNU</em>
 <strong>gfortran</strong>. I used that code to validate the <em>Python</em> implementation.</p>
-<p>I am not recreating the exact file format of the priginal code. Instead, the
+<p>I am not recreating the exact input file format of the original code. Instead, the
 <em>Python</em> application uses a simpler input format, more common in today’s
 development world.</p>
-<p>This project is part of the <em>Math Magik</em> project I started tpo provide <em>Python</em>
-tools to model airplane builders, especially those lfying indoor rubber-powerd
+<p>This project is part of the <em>Math Magik</em> project I started to provide <em>Python</em>
+tools to model airplane builders, especially those flying indoor rubber-powerd
 airplanes. I hope this also proves useful to other folks seeking to design
 better propellers for their applications.</p>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/start/project-setup.html">Project Setup</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development Journal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/development/initial-application.html">Initial Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/development/testing-setup.html">Testing Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/bibliography.html">Bibliography</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">User's Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/guide/command-line.html">Command-Line Usage</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/appendix/installing-basic-tools.html">Basic Development Tools</a></li>
+</ul>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -328,6 +418,13 @@ better propellers for their applications.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='right-next' id="next-link" href="content/start/project-setup.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Project Setup</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
@@ -335,7 +432,7 @@ better propellers for their applications.</p>
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By ROie R. Black<br/>
+    By Roie R. Black<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

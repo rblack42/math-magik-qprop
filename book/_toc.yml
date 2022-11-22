@@ -1,5 +1,19 @@
 # Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
 root: intro
+parts:
+  - caption: Getting Started
+    chapters:
+    - file: content/start/project-setup
+  - caption: Development Journal
+    chapters:
+    - file: content/development/initial-application
+    - file: content/development/testing-setup
+    - file: content/bibliography
+  - caption: User's Guide
+    chapters:
+    - file: content/guide/command-line
+  - caption: Appendix
+    chapters:
+      - file: content/appendix/installing-basic-tools

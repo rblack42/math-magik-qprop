@@ -2,8 +2,8 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Math Magik QProp
-author: ROie R. Black
-logo: assets/images/logo.gif
+author: Roie R. Black
+logo: assets/images/lpp.gif
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

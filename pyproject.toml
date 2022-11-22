@@ -1,9 +1,9 @@
 # pyproject.toml
-project]
+[project]
 name = "mmqprop"
 version = "0.1.0"
 authors = [
-	{"name="Roie R. Black", email="roie.black@gmail.com" },
+	{name="Roie R. Black", email="roie.black@gmail.com" },
 ]
 description = "Python implementation of Drela's QProp program"
 readme = "README.rst"
