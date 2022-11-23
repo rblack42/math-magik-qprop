@@ -31,4 +31,5 @@ run:
 
 .PHONY: lint
 lint:
-	flake8 mmqprop
+	black mmqprop
+	flake8 mmqprop --ignore=E722,E203

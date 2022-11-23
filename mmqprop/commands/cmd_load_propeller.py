@@ -5,13 +5,13 @@ from mmqprop.Propeller import Propeller
 
 
 class Plugin:
-    '''debug command plugin'''
+    """debug command plugin"""
+
     help = "load speficied propeller file"
     name = "load_propeller"
 
     def process(self, ctx):
-        '''process ctx.propfile'''
-        debug = ctx.debug
+        """process ctx.propfile"""
         data_dir = ctx.data_dir
         propfile = ctx.propfile
         if propfile is None:

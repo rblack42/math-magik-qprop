@@ -2,7 +2,7 @@ import sys
 import os
 import importlib
 
-from . Context import Context
+from .Context import Context
 
 
 class CLI(object):
@@ -20,17 +20,17 @@ class CLI(object):
         # scan the plugins directory for commands ---------------
         f = []
         cwd = os.path.abspath(os.path.dirname(__file__))
-        ppath = os.path.join(cwd, 'commands')
+        ppath = os.path.join(cwd, "commands")
         sys.path.append(ppath)
         if self.app_debug:
             print("added:", ppath)
         for (dirpath, dirnames, filenames) in os.walk(ppath):
             f.extend(filenames)
-            break   # stop loop after files are available
+            break  # stop loop after files are available
 
         # import found plugins, save in plugins dict
         for p in f:
-            if not p.startswith('cmd_'):
+            if not p.startswith("cmd_"):
                 continue
             pname = p[:-3]
             if self.app_debug:
@@ -62,10 +62,10 @@ class CLI(object):
     def process_command(self, cmd):
         if self.app_debug:
             print(f"processing cmd {cmd}")
-        if cmd == 'quit':
+        if cmd == "quit":
             self.running = False
             return
-        if cmd == 'help':
+        if cmd == "help":
             print("help - available commands:")
             for c in self.plugins:
                 p = self.plugins[c].Plugin()
@@ -81,11 +81,11 @@ class CLI(object):
                 print(f"calling cmd plugin: {cmd}")
             m.process(self.ctx)
             if self.app_debug:
-                print('completed cmd:', self.ctx.argcount)
+                print("completed cmd:", self.ctx.argcount)
         else:
             print(f"{cmd} not recognized - try 'help'")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     cli = CLI()
     cli.run()

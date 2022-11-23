@@ -1,14 +1,14 @@
 import os
 import sys
 
-from . file_io import load_data
+from .file_io import load_data
 
 
 class Propeller(object):
-    '''Load standard QPROP propeller file from data dir'''
+    """Load standard QPROP propeller file from data dir"""
 
-    def __init__(self, ctx, fname='data/default_prop'):
-        '''set propfile name and initial data values'''
+    def __init__(self, ctx, fname="data/default_prop"):
+        """set propfile name and initial data values"""
         self.name, self.rdata = load_data(fname)
         self.debug = ctx.debug
         self.runfile = None
@@ -30,20 +30,17 @@ class Propeller(object):
             self.nblades = dline[0]
             if len(dline) > 1:
                 self.radius = dline[1]
-            pline = 0
 
             # load base properties -----------
             # read CL0 and CL_a
             dline = self.rdata[1]
             cl0b = dline[0]
             clab = dline[1]
-            pline = 1
 
             # read CLMIN and CLMAX
             dline = self.rdata[2]
             clminb = dline[0]
             clmaxb = dline[1]
-            pline = 2
 
             # read CL/CD quadratic params
             dline = self.rdata[3]
@@ -51,27 +48,23 @@ class Propeller(object):
             cd2ub = dline[1]
             cd2lb = dline[2]
             clcd0b = dline[3]
-            pline = 3
 
             # read REREF and REEXP
             dline = self.rdata[4]
             rerefb = dline[0]
             reexpb = dline[1]
-            pline = 4
 
             # Read scaling factors (1)
             dline = self.rdata[5]
             self.rfac = dline[0]
             self.cfac = dline[1]
             self.bfac = dline[2]
-            pline = 5
 
             # Read scaling factors (2)
             dline = self.rdata[6]
             self.radd = dline[0]
             self.cadd = dline[1]
             self.badd = dline[2]
-            pline = 6
 
             if self.debug:
                 print("base props complete")
@@ -82,7 +75,7 @@ class Propeller(object):
             beta = []
             exdata = []
             for line in self.rdata[7:]:
-                pline += 1
+                pline = 7
                 if self.debug:
                     print("processing line:", pline)
                 r.append(line[0])
@@ -131,18 +124,11 @@ class Propeller(object):
                 # save props for this bld=ade section
                 if self.debug:
                     print("...done")
-                props = [
-                    cl0,
-                    cla,
-                    clmin,
-                    clmax,
-                    cd0,
-                    cd2u,
-                    cd2l,
-                    clcd0,
-                    reref,
-                    reexp
-                ]
+                props = []
+                props.append([cl0, cla, clmin, clmax])
+                props.append([cd0, cd2u, cd2l, clcd0])
+                props.append([reref, reexp])
+
                 if self.debug:
                     print(props)
                 exdata.append(props)
@@ -172,15 +158,15 @@ class Propeller(object):
         print("BETA:", self.beta)
         print("PROPS:")
         for p in self.props:
-            print('\t', p)
+            print("\t", p)
 
     def prepare(self):
-        '''use splines to henerate fine grid of data'''
- 
+        """use splines to henerate fine grid of data"""
 
-if __name__ == '__main__':
-    data_dir = '../data'
-    pname = 'gcam6x3f'
+
+if __name__ == "__main__":
+    data_dir = "../data"
+    pname = "gcam6x3f"
     pfile = os.path.join(data_dir, pname)
     p = Propeller(pfile)
     p.parse()
