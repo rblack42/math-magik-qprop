@@ -4,6 +4,7 @@
 class Plugin:
     '''debug command plugin'''
     help = "toggle application debug flag"
+    name = "debug"
 
     def process(self, ctx):
         '''flip current debug flag setting'''

@@ -7,7 +7,7 @@ class Context(object):
     airfoil = "simplex"             # default airfoil passed to XFoil
     propfile = "default_prop"       # default prop file in data dir
     motorfile = "default_motor"     # default motorfile in data dir
-    datadir = "data"                # directory holding data files
+    data_dir = "data"               # directory holding data files
     airfoil_data = ()
     model_data = {}
     argcount = 0

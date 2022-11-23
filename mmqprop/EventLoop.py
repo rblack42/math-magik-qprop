@@ -16,6 +16,7 @@ class CLI(object):
         self.ctx = Context()
         self.ctx.argcount = 0
         self.ctx.debug = self.app_debug
+
         # scan the plugins directory for commands ---------------
         f = []
         cwd = os.path.abspath(os.path.dirname(__file__))
@@ -69,7 +70,8 @@ class CLI(object):
             for c in self.plugins:
                 p = self.plugins[c].Plugin()
                 help = p.help
-                print("\t", cmd, "-", help)
+                print("\t", p.name, "-", help)
+                print("\t", "quit - terminate program")
             return
 
         if cmd in self.plugins:
