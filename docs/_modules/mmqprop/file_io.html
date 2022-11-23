@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mmqprop.Context &#8212; Math Magik QProp</title>
+    <title>mmqprop.file_io &#8212; Math Magik QProp</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -267,7 +267,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/rblack42/math-magik-qprop/issues/new?title=Issue%20on%20page%20%2F_modules/mmqprop/Context.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/rblack42/math-magik-qprop/issues/new?title=Issue%20on%20page%20%2F_modules/mmqprop/file_io.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -310,24 +310,44 @@ title="Open an issue"
                 
               <div>
                 
-  <h1>Source code for mmqprop.Context</h1><div class="highlight"><pre>
-<span></span><span class="c1"># Context.py</span>
+  <h1>Source code for mmqprop.file_io</h1><div class="highlight"><pre>
+<span></span><span class="c1"># mmqprop/file_io.py</span>
 
-<div class="viewcode-block" id="Context"><a class="viewcode-back" href="../../content/development/api.html#mmqprop.Context.Context">[docs]</a><span class="k">class</span> <span class="nc">Context</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;manages data passed between commands&quot;&quot;&quot;</span>
 
-    <span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;hodson-wart&quot;</span>
-    <span class="n">airfoil</span> <span class="o">=</span> <span class="s2">&quot;simplex&quot;</span>             <span class="c1"># default airfoil passed to XFoil</span>
-    <span class="n">propfile</span> <span class="o">=</span> <span class="s2">&quot;default_prop&quot;</span>       <span class="c1"># default prop file in data dir</span>
-    <span class="n">motorfile</span> <span class="o">=</span> <span class="s2">&quot;default_motor&quot;</span>     <span class="c1"># default motorfile in data dir</span>
-    <span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>               <span class="c1"># directory holding data files</span>
-    <span class="n">airfoil_data</span> <span class="o">=</span> <span class="p">()</span>
-    <span class="n">model_data</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="n">argcount</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">debug</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="n">CL</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">CD</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">CM</span> <span class="o">=</span> <span class="p">[]</span></div>
+<div class="viewcode-block" id="load_data"><a class="viewcode-back" href="../../content/development/api.html#mmqprop.file_io.load_data">[docs]</a><span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;load a data file, strip whitespace, return data&#39;&#39;&#39;</span>
+
+    <span class="c1"># set up for error return</span>
+    <span class="n">rdata</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">fin</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+        <span class="n">dlines</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>  <span class="c1"># get rid of trailing whitespace and newlines</span>
+
+            <span class="c1"># skip comment and blank lines</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;#&#39;</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="c1"># look for end line comments</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;!&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+            <span class="n">dlines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+        <span class="c1"># get name line - required</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">dlines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+        <span class="c1"># break out remaining data</span>
+        <span class="n">rdata</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">dlines</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="n">rline</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">rdata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rline</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">name</span><span class="p">,</span> <span class="n">rdata</span></div>
 </pre></div>
 
               </div>

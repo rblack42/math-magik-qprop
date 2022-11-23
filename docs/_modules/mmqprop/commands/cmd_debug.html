@@ -311,12 +311,13 @@ title="Open an issue"
               <div>
                 
   <h1>Source code for mmqprop.commands.cmd_debug</h1><div class="highlight"><pre>
-<span></span><span class="c1">#versions.py</span>
+<span></span><span class="c1"># cmd_debug.py</span>
 
 
 <div class="viewcode-block" id="Plugin"><a class="viewcode-back" href="../../../content/development/api.html#mmqprop.commands.cmd_debug.Plugin">[docs]</a><span class="k">class</span> <span class="nc">Plugin</span><span class="p">:</span>
     <span class="sd">&#39;&#39;&#39;debug command plugin&#39;&#39;&#39;</span>
     <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;toggle application debug flag&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;debug&quot;</span>
 
 <div class="viewcode-block" id="Plugin.process"><a class="viewcode-back" href="../../../content/development/api.html#mmqprop.commands.cmd_debug.Plugin.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;flip current debug flag setting&#39;&#39;&#39;</span>

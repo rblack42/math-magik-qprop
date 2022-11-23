@@ -377,6 +377,18 @@ title="Print to PDF"
    Application Command Plugins
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-standard-qprop-data-files">
+   Load Standard QPROP Data Files
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-file-input">
+     Basic File Input
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </nav>
@@ -415,6 +427,18 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#application-command-plugins">
    Application Command Plugins
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-standard-qprop-data-files">
+   Load Standard QPROP Data Files
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-file-input">
+     Basic File Input
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -507,13 +531,13 @@ in the code to debug the application during development.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="mmqprop.Context.Context.debug">
-<span class="sig-name descname"><span class="pre">debug</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#mmqprop.Context.Context.debug" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="mmqprop.Context.Context.data_dir">
+<span class="sig-name descname"><span class="pre">data_dir</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'data'</span></em><a class="headerlink" href="#mmqprop.Context.Context.data_dir" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="mmqprop.Context.Context.env_key">
-<span class="sig-name descname"><span class="pre">env_key</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'MATHMAGIK'</span></em><a class="headerlink" href="#mmqprop.Context.Context.env_key" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="mmqprop.Context.Context.debug">
+<span class="sig-name descname"><span class="pre">debug</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#mmqprop.Context.Context.debug" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -524,6 +548,16 @@ in the code to debug the application during development.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmqprop.Context.Context.model_data">
 <span class="sig-name descname"><span class="pre">model_data</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#mmqprop.Context.Context.model_data" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mmqprop.Context.Context.motorfile">
+<span class="sig-name descname"><span class="pre">motorfile</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'default_motor'</span></em><a class="headerlink" href="#mmqprop.Context.Context.motorfile" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mmqprop.Context.Context.propfile">
+<span class="sig-name descname"><span class="pre">propfile</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'default_prop'</span></em><a class="headerlink" href="#mmqprop.Context.Context.propfile" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -544,6 +578,11 @@ placing it in the <strong>commands</strong> directory.</p>
 <span class="sig-name descname"><span class="pre">help</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'display</span> <span class="pre">dependency</span> <span class="pre">versions'</span></em><a class="headerlink" href="#mmqprop.commands.cmd_versions.Plugin.help" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mmqprop.commands.cmd_versions.Plugin.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'versions'</span></em><a class="headerlink" href="#mmqprop.commands.cmd_versions.Plugin.name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="mmqprop.commands.cmd_versions.Plugin.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/commands/cmd_versions.html#Plugin.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.commands.cmd_versions.Plugin.process" title="Permalink to this definition">#</a></dt>
@@ -562,6 +601,11 @@ placing it in the <strong>commands</strong> directory.</p>
 <span class="sig-name descname"><span class="pre">help</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'toggle</span> <span class="pre">application</span> <span class="pre">debug</span> <span class="pre">flag'</span></em><a class="headerlink" href="#mmqprop.commands.cmd_debug.Plugin.help" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mmqprop.commands.cmd_debug.Plugin.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'debug'</span></em><a class="headerlink" href="#mmqprop.commands.cmd_debug.Plugin.name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="mmqprop.commands.cmd_debug.Plugin.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/commands/cmd_debug.html#Plugin.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.commands.cmd_debug.Plugin.process" title="Permalink to this definition">#</a></dt>
@@ -570,6 +614,74 @@ placing it in the <strong>commands</strong> directory.</p>
 
 </dd></dl>
 
+</section>
+<section id="load-standard-qprop-data-files">
+<h2>Load Standard QPROP Data Files<a class="headerlink" href="#load-standard-qprop-data-files" title="Permalink to this headline">#</a></h2>
+<p>These files support loading example data files found in the <strong>QPROP</strong> Fortran
+source files.</p>
+<section id="basic-file-input">
+<h3>Basic File Input<a class="headerlink" href="#basic-file-input" title="Permalink to this headline">#</a></h3>
+<p>The input files have a <em>Fortram</em> flavor, using the <strong>!</strong> character to start an
+end-of-line comment. Thif file provides code that loads a neded file, deletes
+all comments, and returns a simple list of data chinks from the file.</p>
+<span class="target" id="module-mmqprop.file_io"></span><dl class="py function">
+<dt class="sig sig-object py" id="mmqprop.file_io.load_data">
+<span class="sig-prename descclassname"><span class="pre">mmqprop.file_io.</span></span><span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/file_io.html#load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.file_io.load_data" title="Permalink to this definition">#</a></dt>
+<dd><p>load a data file, strip whitespace, return data</p>
+</dd></dl>
+
+<p>The next file processes a propeller data file.</p>
+<span class="target" id="module-mmqprop.Propeller"></span><dl class="py class">
+<dt class="sig sig-object py" id="mmqprop.Propeller.Propeller">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmqprop.Propeller.</span></span><span class="sig-name descname"><span class="pre">Propeller</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data/default_prop'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/Propeller.html#Propeller"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.Propeller.Propeller" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Load standard QPROP propeller file from data dir</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mmqprop.Propeller.Propeller.dump">
+<span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/Propeller.html#Propeller.dump"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.Propeller.Propeller.dump" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mmqprop.Propeller.Propeller.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/Propeller.html#Propeller.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.Propeller.Propeller.parse" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mmqprop.Propeller.Propeller.prepare">
+<span class="sig-name descname"><span class="pre">prepare</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/Propeller.html#Propeller.prepare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.Propeller.Propeller.prepare" title="Permalink to this definition">#</a></dt>
+<dd><p>use splines to henerate fine grid of data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mmqprop.Propeller.Propeller.read_error">
+<span class="sig-name descname"><span class="pre">read_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/Propeller.html#Propeller.read_error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.Propeller.Propeller.read_error" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<p>Next, we process a motor data file</p>
+<span class="target" id="module-mmqprop.Motor"></span><dl class="py class">
+<dt class="sig sig-object py" id="mmqprop.Motor.Motor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmqprop.Motor.</span></span><span class="sig-name descname"><span class="pre">Motor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default_motor'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/Motor.html#Motor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.Motor.Motor" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mmqprop.Motor.Motor.dump">
+<span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/Motor.html#Motor.dump"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.Motor.Motor.dump" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mmqprop.Motor.Motor.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/Motor.html#Motor.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.Motor.Motor.parse" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mmqprop.Motor.Motor.read_error">
+<span class="sig-name descname"><span class="pre">read_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/Motor.html#Motor.read_error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.Motor.Motor.read_error" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
 </section>
 </section>
 
