@@ -1,0 +1,5 @@
+#!/Users/rblack/_dev/mmqprop/.venv/bin/python
+import mmqprop
+
+print(mmqprop.version())
+

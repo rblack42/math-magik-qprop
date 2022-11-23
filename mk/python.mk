@@ -1,7 +1,7 @@
 .PHONY: venv
 venv:	## Create Python virtual environment
 	test -d .venv || \
-	python -m venv .venv
+	python3 -m venv .venv
 
 .PHONY: init
 init:  ## update pip and install pip-tools
@@ -29,3 +29,6 @@ dev:		## Install package in development mode
 run:
 	python -m mmqprop
 
+.PHONY: lint
+lint:
+	flake8 mmqprop

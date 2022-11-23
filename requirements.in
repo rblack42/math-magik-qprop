@@ -12,3 +12,6 @@ twine
 
 # documentation
 jupyter-book
+sphinx-autodoc-typehints
+furo
+sphinx-pydantic

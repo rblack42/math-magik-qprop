@@ -18,3 +18,11 @@ better propellers for their applications.
 
 ```{tableofcontents}
 ```
+
+```{eval-rst}
+Indices and tables
+==================
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+```

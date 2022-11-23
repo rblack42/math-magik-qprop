@@ -1,0 +1,44 @@
+API
+###
+
+This section details the components of the **mmqprop** application. The
+information generated here is extracted automatically from the application
+code.
+
+Primary mmqprop class
+---------------------
+
+..  automodule:: mmqprop
+    :members: 
+
+Command Line Event Loop
+-----------------------
+
+This class is responsible for loading all installed command plugins, creating
+the application context for this run and starting the user command loop. A
+simple **>** prompt is provided as a prompt. The **app_debug** flag can be set
+in the code to debug the application during development.
+
+..  automodule:: mmqprop.EventLoop
+    :members:
+
+Application Context
+-------------------
+
+The **Context** class constructs a data store passed to all commands.
+
+..  automodule:: mmqprop.Context
+    :members:
+
+Application Command Plugins
+---------------------------
+
+Each application command is implemented in a separate file with a name starting
+with **cmd_**. New commands can be added by simple writing a new file and
+placing it in the **commands** directory.
+
+..  automodule:: mmqprop.commands.cmd_versions
+    :members:
+
+..  automodule::   mmqprop.commands.cmd_debug
+    :members:

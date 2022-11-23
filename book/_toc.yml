@@ -10,6 +10,8 @@ parts:
     chapters:
     - file: content/development/initial-application
     - file: content/development/testing-setup
+    - file: content/development/command-loop
+    - file: content/development/api
     - file: content/bibliography
   - caption: User's Guide
     chapters:

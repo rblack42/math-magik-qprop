@@ -3,6 +3,7 @@
 
 title: Math Magik QProp
 author: Roie R. Black
+copyright: "2022"
 logo: assets/images/lpp.gif
 
 # Force re-execution of notebooks on each build.
@@ -22,9 +23,31 @@ bibtex_bibfiles:
 # Information about where the book exists on the web
 repository:
   url: https://github.com/rblack42/math-magik-qprop
-  path_to_book: docs
+  path_to_book: book
   branch: master
 
 html:
   use_issues_button: true
   use_repository_button: true
+
+sphinx:
+  extra_extensions:
+    - sphinx.ext.viewcode
+    - sphinx.ext.napoleon
+    - sphinx.ext.autodoc
+    - sphinx_autodoc_typehints
+    - sphinx.ext.autosummary
+  config:
+    autosummary_generate: True
+    autosummary_imported_members: True
+    autodoc_default_options:
+      special-members: False
+      undoc-members: True
+      show-inheritance: True
+      html_theme: furo
+      intersphinx_mapping:
+        python:
+          - "https://docs.python.org/3"
+          - null
+      pygments_style: "material"
+

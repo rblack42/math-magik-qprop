@@ -1,0 +1,2 @@
+[console_scripts]
+mmqprop = mmqprop.cli:cli

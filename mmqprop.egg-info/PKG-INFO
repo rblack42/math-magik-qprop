@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: mmqprop
+Version: 0.1.0
+Summary: Python implementation of Drela's QProp program
+Author-email: "Roie R. Black" <roie.black@gmail.com>
+License: BSD-3-Clause
+Project-URL: homepage, https://github.com/rblack42/math-magik-qprop
+Project-URL: documentation, https://rblack42.github.io/math-magik-qprop
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Testing
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+
+Math Magic QProp
+################
+:Author: Roie R. Black
+:EMail: roie.black@gmail.com
+:Docs: https://rblack42.github.io/math-magic/mmqprop
+
+This project is a Python implementation of Mark Draela's original Fortran *QProp* application. Mark's original code isincluded here so interested users can build it and compare results against the *Python* implementation.

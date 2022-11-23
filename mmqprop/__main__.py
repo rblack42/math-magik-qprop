@@ -1,3 +1,6 @@
 from . import version
+from .cli import cli
 
-print("mmqprop version:", version())
+if __name__ == '__main__':
+    print("mmqprop version:", version())
+    cli()
