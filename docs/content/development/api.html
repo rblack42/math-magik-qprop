@@ -180,6 +180,11 @@ const thebe_selector_output = ".output, .cell_output"
    Basic Development Tools
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/standard-atmosphere.html">
+   Standard Atmosphere
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -387,7 +392,17 @@ title="Print to PDF"
      Basic File Input
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#circulation">
+     Circulation
+    </a>
+   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-mmqprop.StdAtm">
+   Standard Atmosphere Model
+  </a>
  </li>
 </ul>
 
@@ -438,7 +453,17 @@ title="Print to PDF"
      Basic File Input
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#circulation">
+     Circulation
+    </a>
+   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-mmqprop.StdAtm">
+   Standard Atmosphere Model
+  </a>
  </li>
 </ul>
 
@@ -471,12 +496,12 @@ simple <strong>&gt;</strong> prompt is provided as a prompt. The <strong>app_deb
 in the code to debug the application during development.</p>
 <span class="target" id="module-mmqprop.EventLoop"></span><dl class="py class">
 <dt class="sig sig-object py" id="mmqprop.EventLoop.CLI">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmqprop.EventLoop.</span></span><span class="sig-name descname"><span class="pre">CLI</span></span><a class="reference internal" href="../../_modules/mmqprop/EventLoop.html#CLI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.EventLoop.CLI" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmqprop.EventLoop.</span></span><span class="sig-name descname"><span class="pre">CLI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">debug</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/EventLoop.html#CLI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.EventLoop.CLI" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Primitive event loop for commandline</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmqprop.EventLoop.CLI.app_debug">
-<span class="sig-name descname"><span class="pre">app_debug</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#mmqprop.EventLoop.CLI.app_debug" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">app_debug</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#mmqprop.EventLoop.CLI.app_debug" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -682,6 +707,59 @@ all comments, and returns a simple list of data chinks from the file.</p>
 </dd></dl>
 
 </section>
+<section id="circulation">
+<h3>Circulation<a class="headerlink" href="#circulation" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+<section id="module-mmqprop.StdAtm">
+<span id="standard-atmosphere-model"></span><h2>Standard Atmosphere Model<a class="headerlink" href="#module-mmqprop.StdAtm" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mmqprop.StdAtm.StdAtm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmqprop.StdAtm.</span></span><span class="sig-name descname"><span class="pre">StdAtm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/StdAtm.html#StdAtm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.StdAtm.StdAtm" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>1976 us standard Atmosphere</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mmqprop.StdAtm.StdAtm.T">
+<span class="sig-name descname"><span class="pre">T</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/StdAtm.html#StdAtm.T"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.StdAtm.StdAtm.T" title="Permalink to this definition">#</a></dt>
+<dd><p>return temperature vs altitude</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mmqprop.StdAtm.StdAtm.a">
+<span class="sig-name descname"><span class="pre">a</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/StdAtm.html#StdAtm.a"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.StdAtm.StdAtm.a" title="Permalink to this definition">#</a></dt>
+<dd><p>return speed of sound vs altitude</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mmqprop.StdAtm.StdAtm.mu">
+<span class="sig-name descname"><span class="pre">mu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/StdAtm.html#StdAtm.mu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.StdAtm.StdAtm.mu" title="Permalink to this definition">#</a></dt>
+<dd><p>return viscosity vs altitude</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mmqprop.StdAtm.StdAtm.p">
+<span class="sig-name descname"><span class="pre">p</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/StdAtm.html#StdAtm.p"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.StdAtm.StdAtm.p" title="Permalink to this definition">#</a></dt>
+<dd><p>return pressure vs altitude</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mmqprop.StdAtm.StdAtm.properties">
+<span class="sig-name descname"><span class="pre">properties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/StdAtm.html#StdAtm.properties"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.StdAtm.StdAtm.properties" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mmqprop.StdAtm.StdAtm.rho">
+<span class="sig-name descname"><span class="pre">rho</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/StdAtm.html#StdAtm.rho"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.StdAtm.StdAtm.rho" title="Permalink to this definition">#</a></dt>
+<dd><p>return density vs altitude</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mmqprop.StdAtm.StdAtm.sl_properties">
+<span class="sig-name descname"><span class="pre">sl_properties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mmqprop/StdAtm.html#StdAtm.sl_properties"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mmqprop.StdAtm.StdAtm.sl_properties" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 

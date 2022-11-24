@@ -35,7 +35,7 @@
 
 # Next, we set up another piece of code that will help us run the program. This file also lives in the **mmqprop** package directory:
 #     
-# mmqprop/__min__.py:
+# mmqprop/\_\_main\_\_.py:
 # ```{code}
 # from . import version
 # 

@@ -142,6 +142,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="command-loop.html">
+   Command Loop
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="api.html">
    API
   </a>
@@ -173,6 +178,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/installing-basic-tools.html">
    Basic Development Tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/standard-atmosphere.html">
+   Standard Atmosphere
   </a>
  </li>
 </ul>
@@ -404,7 +414,7 @@ title="Print to PDF"
 </div>
 <p>This snippet establishes the version number for the project and sets up a way to fetch that number. We will set things up to update this number as the project development proceeds.</p>
 <p>Next, we set up another piece of code that will help us run the program. This file also lives in the <strong>mmqprop</strong> package directory:</p>
-<p>mmqprop/<strong>min</strong>.py:</p>
+<p>mmqprop/__main__.py:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">version</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mmqprop version:&quot;</span><span class="p">,</span> <span class="n">version</span><span class="p">())</span>
@@ -437,6 +447,8 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mmqprop version: 0.1.0
+
+runtype: single False
 </pre></div>
 </div>
 </div>

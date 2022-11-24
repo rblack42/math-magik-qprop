@@ -313,12 +313,11 @@ title="Open an issue"
   <h1>Source code for mmqprop.Motor</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">os</span>
 
-<span class="kn">from</span> <span class="nn">.</span> <span class="n">file_io</span> <span class="kn">import</span> <span class="nn">load_data</span>
+<span class="kn">from</span> <span class="nn">.file_io</span> <span class="kn">import</span> <span class="n">load_data</span>
 
 
 <div class="viewcode-block" id="Motor"><a class="viewcode-back" href="../../content/development/api.html#mmqprop.Motor.Motor">[docs]</a><span class="k">class</span> <span class="nc">Motor</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;default_motor&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="s2">&quot;default_motor&quot;</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rdata</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dlines</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rdata</span><span class="p">)</span>
 
@@ -332,9 +331,9 @@ title="Open an issue"
             <span class="bp">self</span><span class="o">.</span><span class="n">read_error</span><span class="p">(</span><span class="s2">&quot;Type 1 insuffucuent data lines&quot;</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mtype</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">dlines</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># motor type</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">r0</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">dlines</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>   <span class="c1"># motor resistance</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">r0</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">dlines</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># motor resistance</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">io0</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">dlines</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># no-load current</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">kv</span> <span class="o">=</span> <span class="n">dlines</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>          <span class="c1"># rpm/volt</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">kv</span> <span class="o">=</span> <span class="n">dlines</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># rpm/volt</span>
 
             <span class="c1"># set remaning properties to -1 no data</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">kq</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
@@ -355,11 +354,11 @@ title="Open an issue"
             <span class="bp">self</span><span class="o">.</span><span class="n">read_error</span><span class="p">(</span><span class="s2">&quot;Type 2 insufficient data lines&quot;</span><span class="p">)</span>
             <span class="k">return</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">kq</span> <span class="o">=</span> <span class="n">dlines</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>          <span class="c1"># amp/N-m</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">tau</span> <span class="o">=</span> <span class="n">dlines</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>         <span class="c1"># magnetic lag time</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">io1</span> <span class="o">=</span> <span class="n">dlines</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>         <span class="c1"># no-load current linear term</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">io2</span> <span class="o">=</span> <span class="n">dlines</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>         <span class="c1"># no-load quadratic term</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">r2</span> <span class="o">=</span> <span class="n">dlines</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>          <span class="c1"># motor resistance quadratic coeff</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">kq</span> <span class="o">=</span> <span class="n">dlines</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># amp/N-m</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tau</span> <span class="o">=</span> <span class="n">dlines</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># magnetic lag time</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">io1</span> <span class="o">=</span> <span class="n">dlines</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># no-load current linear term</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">io2</span> <span class="o">=</span> <span class="n">dlines</span><span class="p">[</span><span class="mi">7</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># no-load quadratic term</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">r2</span> <span class="o">=</span> <span class="n">dlines</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># motor resistance quadratic coeff</span>
         <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">read_error</span><span class="p">(</span><span class="s2">&quot;type 2 data file invalid&quot;</span><span class="p">)</span>
             <span class="k">return</span></div>
@@ -377,9 +376,9 @@ title="Open an issue"
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R2:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">r2</span><span class="p">)</span></div></div>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;../data&#39;</span>
-    <span class="n">mname</span> <span class="o">=</span> <span class="s1">&#39;s300-7v-dd&#39;</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;../data&quot;</span>
+    <span class="n">mname</span> <span class="o">=</span> <span class="s2">&quot;s300-7v-dd&quot;</span>
     <span class="n">mfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">mname</span><span class="p">)</span>
     <span class="n">m</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">mfile</span><span class="p">)</span>
     <span class="n">m</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>

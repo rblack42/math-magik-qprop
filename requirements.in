@@ -15,3 +15,8 @@ jupyter-book
 sphinx-autodoc-typehints
 furo
 sphinx-pydantic
+
+# QPROP dependencies
+pint
+numpy
+matplotlib

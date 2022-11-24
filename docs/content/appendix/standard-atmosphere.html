@@ -1,0 +1,859 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Standard Atmosphere &#8212; Math Magik QProp</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Basic Development Tools" href="installing-basic-tools.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/lpp.gif" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Math Magik QProp</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Math Magik QProp
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../start/project-setup.html">
+   Project Setup
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Development Journal
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../development/initial-application.html">
+   Initial Application
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../development/testing-setup.html">
+   Testing Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../development/command-loop.html">
+   Command Loop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../development/api.html">
+   API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  User's Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../guide/command-line.html">
+   Command-Line Usage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installing-basic-tools.html">
+   Basic Development Tools
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Standard Atmosphere
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/rblack42/math-magik-qprop/master?urlpath=tree/book/content/appendix/standard-atmosphere.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/rblack42/math-magik-qprop"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/rblack42/math-magik-qprop/issues/new?title=Issue%20on%20page%20%2Fcontent/appendix/standard-atmosphere.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/content/appendix/standard-atmosphere.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pressure-vs-altitude">
+   Pressure vs Altitude
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#temperature-vs-altitude">
+   Temperature vs Altitude
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viscosity-vs-altitude">
+   Viscosity vs Altitude
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#density-vs-altitude">
+   Density vs Altitude
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#speed-of-sound-vs-altitude">
+   Speed of Sound vs Altitude
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Standard Atmosphere</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pressure-vs-altitude">
+   Pressure vs Altitude
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#temperature-vs-altitude">
+   Temperature vs Altitude
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viscosity-vs-altitude">
+   Viscosity vs Altitude
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#density-vs-altitude">
+   Density vs Altitude
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#speed-of-sound-vs-altitude">
+   Speed of Sound vs Altitude
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="standard-atmosphere">
+<h1>Standard Atmosphere<a class="headerlink" href="#standard-atmosphere" title="Permalink to this headline">#</a></h1>
+<p>Aerodynamic analyses need various air properties to do the calculations. The standard way to come up with thoseproperties is to use the <em>Standard Atmosphere</em> model, published in 1976. There is a <em>Python</em> package that provides access to this model, but for our purposes, I will use methods defined in Mark Drela’s <em>Flight Vehicle Aerodynamics</em><span id="id1">[<a class="reference internal" href="../bibliography.html#id3" title="Mark Drela. Flight Vehicle Aerodynamics. MIT Press, 2014. ISBN 978-0-262-52664-9.">Dre14</a>]</span>.</p>
+<p>To get started with this model, we need to define the properties at sea-level. Each of these properties has engineering units attached to the number. It is critical that these units be consistent in calculations, so we will use the <em>Python</em> <strong>pint</strong> package to add these units to the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pint</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">pint</span><span class="o">.</span><span class="n">UnitRegistry</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rho_SL</span> <span class="o">=</span> <span class="mf">1.225</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">kg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">rho_SL</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">1.225 kilogram/meter<sup>3</sup></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_SL</span> <span class="o">=</span> <span class="mf">1.0132e5</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">pascal</span>
+<span class="n">p_SL</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">101320.0 pascal</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T_SL</span> <span class="o">=</span> <span class="mf">288.15</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">kelvin</span>
+<span class="n">T_SL</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">288.15 kelvin</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_SL</span> <span class="o">=</span> <span class="mf">340.3</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">sec</span>
+<span class="n">a_SL</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">340.3 meter/second</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu_SL</span> <span class="o">=</span> <span class="mf">1.79e-5</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">kg</span><span class="o">/</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">sec</span><span class="p">)</span>
+<span class="n">mu_SL</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">1.79×10<sup>-5</sup> kilogram/(meter second)</div></div>
+</div>
+<p>The equations that define these properties for altitudes other than sea-level are given in Drela’s book, but they originally come from the <em>COESA Working Group</em><span id="id2">[<a class="reference internal" href="../bibliography.html#id4" title="COESA Working Group. Us standard atmosphere, 1976. Technical Report NAOO-S/T 76-1562, NAOO, 1976.">Gro76</a>]</span></p>
+<p>\begin{equation}
+p(z) = e^{-0.118z -\frac{0.0015z^2}{1-0.018z+0.0011z^2}}
+\end{equation}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">27</span><span class="p">)</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">km</span>
+<span class="n">alt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table><tbody><tr><th>Magnitude</th><td style='text-align:left;'><pre>[0.0 1.0 2.0 3.0 4.0 5.0 6.0 7.0 8.0 9.0 10.0 11.0 12.0 13.0 14.0 15.0<br> 16.0 17.0 18.0 19.0 20.0 21.0 22.0 23.0 24.0 25.0 26.0]</pre></td></tr><tr><th>Units</th><td style='text-align:left;'>kilometer</td></tr></tbody></table></div></div>
+</div>
+<section id="pressure-vs-altitude">
+<h2>Pressure vs Altitude<a class="headerlink" href="#pressure-vs-altitude" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="n">zm</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">magnitude</span>
+    <span class="k">return</span> <span class="n">p_SL</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.118</span><span class="o">*</span><span class="n">zm</span><span class="o">-</span><span class="p">(</span><span class="mf">0.0015</span><span class="o">*</span><span class="n">zm</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.018</span><span class="o">*</span><span class="n">zm</span><span class="o">+</span><span class="mf">0.0011</span><span class="o">*</span><span class="n">zm</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poa</span> <span class="o">=</span> <span class="n">p</span><span class="p">(</span><span class="n">alt</span><span class="p">)</span>
+<span class="n">poa</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table><tbody><tr><th>Magnitude</th><td style='text-align:left;'><pre>[101320.0 89905.40296142412 79526.3201763238 70116.7008535207<br> 61614.862419002806 53962.20127801882 47102.168173822436 40979.53120929073<br> 35539.93103120646 30729.71191496322 26495.992696378078 22786.925696046874<br> 19552.082212282578 16742.900854417207 14313.13965090953<br> 12219.283063740182 10420.868635489112 8880.712667420943 7565.028033761941<br> 6443.43852153456 5488.902186947324 4677.561021642893 3988.536089189105<br> 3403.6868673416725 2907.3515509893737 2486.0822244901847<br> 2128.3856626436877]</pre></td></tr><tr><th>Units</th><td style='text-align:left;'>pascal</td></tr></tbody></table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">popsl</span> <span class="o">=</span> <span class="n">poa</span><span class="o">/</span><span class="n">p_SL</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="temperature-vs-altitude">
+<h2>Temperature vs Altitude<a class="headerlink" href="#temperature-vs-altitude" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">T</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="n">zm</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">magnitude</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="mf">216.65</span> <span class="o">+</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">35.75</span> <span class="o">-</span> <span class="mf">3.25</span><span class="o">*</span><span class="n">zm</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">3.0</span><span class="o">+</span><span class="mf">0.0003</span><span class="o">*</span><span class="n">zm</span><span class="o">**</span><span class="mi">3</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">res</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">kelvin</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="p">(</span><span class="mi">0</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">km</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">288.15 kelvin</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">totsl</span> <span class="o">=</span> <span class="n">T</span><span class="p">(</span><span class="n">alt</span><span class="p">)</span>
+<span class="n">totsl</span> <span class="o">=</span> <span class="n">totsl</span><span class="o">/</span><span class="n">T_SL</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">totsl</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table><tbody><tr><th>Magnitude</th><td style='text-align:left;'><pre>[1.0 0.9774423043553707 0.9548846087107425 0.9323269130661487<br> 0.909769217422443 0.8872115218016585 0.864653826772848 0.8420961470418766<br> 0.8195388629320705 0.7969918120142241 0.7747044719977422<br> 0.7569292795636732 0.7526666985587329 0.7525126326478171<br> 0.7526113080276051 0.7527567465845564 0.7529558481885794<br> 0.7532306263698091 0.7536133264982797 0.7541496428151572<br> 0.7549018771506926 0.755949529762568 0.7573837493026108 0.75929287550148<br> 0.7617418335517596 0.7647560442698814 0.7683210471896667]</pre></td></tr><tr><th>Units</th><td style='text-align:left;'>dimensionless</td></tr></tbody></table></div></div>
+</div>
+</section>
+<section id="viscosity-vs-altitude">
+<h2>Viscosity vs Altitude<a class="headerlink" href="#viscosity-vs-altitude" title="Permalink to this headline">#</a></h2>
+<p>The viscosity function is given next:</p>
+<p>\begin{equation}
+\mu(z) = \mu(T(z)) = \mu_{SL}\left(\frac{T}{T_{SL}}
+\right)^\frac{3}{2}\frac{T_{SL} + T_S}{T + T_S}
+\end{equation}</p>
+<p>From Sutherland’s Law, the value for <span class="math notranslate nohighlight">\(T_S\)</span> is <span class="math notranslate nohighlight">\(110K\)</span> for air.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T_S</span> <span class="o">=</span> <span class="mi">110</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">kelvin</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="n">T</span><span class="p">(</span><span class="n">alt</span><span class="p">)</span>
+<span class="n">temp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table><tbody><tr><th>Magnitude</th><td style='text-align:left;'><pre>[288.15 281.65000000000003 275.15000000000043 268.6500000000107<br> 262.1500000002769 255.65000000714787 249.1500001845961 242.65000477011674<br> 236.15012335387607 229.65319063189864 223.2310936061494<br> 218.10917190627242 216.88090918969888 216.83651509746846<br> 216.8649484081544 216.90685652833992 216.96422765553913<br> 217.04340498846048 217.15368003047928 217.30821957718751<br> 217.52497590097204 217.82685700108397 218.24012736154728<br> 218.79024207575142 219.4959093379395 220.36445415636632<br> 221.39170974770244]</pre></td></tr><tr><th>Units</th><td style='text-align:left;'>kelvin</td></tr></tbody></table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mu</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">T</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mu_SL</span><span class="o">*</span><span class="p">(</span><span class="n">temp</span><span class="o">/</span><span class="n">T_SL</span><span class="p">)</span><span class="o">**</span><span class="mf">1.5</span><span class="o">*</span><span class="p">(</span><span class="n">T_SL</span> <span class="o">+</span> <span class="n">T_S</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">temp</span><span class="o">+</span><span class="n">T_S</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">muoa</span> <span class="o">=</span> <span class="n">mu</span><span class="p">(</span><span class="n">alt</span><span class="p">)</span>
+<span class="n">muoa</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table><tbody><tr><th>Magnitude</th><td style='text-align:left;'><pre>[1.79e-05 1.7584835809587085e-05 1.7266177001104793e-05<br> 1.694392893819139e-05 1.6617993505788143e-05 1.628826899776725e-05<br> 1.5954650017569277e-05 1.561702758439764e-05 1.5275294416681778e-05<br> 1.4929485519502643e-05 1.4583384522673428e-05 1.4304225162586247e-05<br> 1.4236861027383915e-05 1.4234423157951812e-05 1.423598457735019e-05<br> 1.4238285807250525e-05 1.4241435820872942e-05 1.4245782535101866e-05<br> 1.425183532845563e-05 1.4260315491725273e-05 1.427220534594282e-05<br> 1.428875609091321e-05 1.4311397759875444e-05 1.4341507963811481e-05<br> 1.4380084373826825e-05 1.4427491109355978e-05 1.4483456082874562e-05]</pre></td></tr><tr><th>Units</th><td style='text-align:left;'>kilogram/(meter second)</td></tr></tbody></table></div></div>
+</div>
+</section>
+<section id="density-vs-altitude">
+<h2>Density vs Altitude<a class="headerlink" href="#density-vs-altitude" title="Permalink to this headline">#</a></h2>
+<p>To get density we need to use the ideal gas state equation</p>
+<p>\begin{equation}
+p = \rho R T
+\end{equation}</p>
+<p>Where the gas constant is <span class="math notranslate nohighlight">\(R = 287.04\frac{J}{kgK}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Rgas</span> <span class="o">=</span> <span class="mf">287.04</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">joule</span><span class="o">/</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">kg</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">kelvin</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rho</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">T</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">press</span> <span class="o">=</span> <span class="n">p</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">rho</span> <span class="o">=</span> <span class="n">press</span><span class="o">/</span><span class="p">(</span><span class="n">Rgas</span><span class="o">*</span><span class="n">temp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rho</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rho</span><span class="p">(</span><span class="n">alt</span><span class="p">)</span><span class="o">.</span><span class="n">to_base_units</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table><tbody><tr><th>Magnitude</th><td style='text-align:left;'><pre>[1.2249944916355073 1.1120738151154193 1.006929231672808<br> 0.9092686279875508 0.818828970279342 0.7353624321726699<br> 0.6586240505752484 0.5883615187817502 0.5243073942276445<br> 0.4661692083875943 0.4135072107201098 0.3639731823997718<br> 0.3140720347286737 0.2690022207064919 0.229933962687512<br> 0.19625919974048978 0.16732982820764872 0.1425472368849524<br> 0.12136708656500936 0.10329971282845796 0.08790912170823537<br> 0.07481102675886994 0.06367024165768087 0.054197496853412463<br> 0.046145429941715554 0.0393035270301297 0.033492421578613936]</pre></td></tr><tr><th>Units</th><td style='text-align:left;'>kilogram/meter<sup>3</sup></td></tr></tbody></table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rhooa</span> <span class="o">=</span> <span class="n">rho</span><span class="p">(</span><span class="n">alt</span><span class="p">)</span>
+<span class="n">rhooa</span> <span class="o">=</span> <span class="n">rhooa</span><span class="o">/</span><span class="n">rho_SL</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="speed-of-sound-vs-altitude">
+<h2>Speed of Sound vs Altitude<a class="headerlink" href="#speed-of-sound-vs-altitude" title="Permalink to this headline">#</a></h2>
+<p>The speed of sound is calculated using this formula:</p>
+<p>\begin{equation}
+a= \sqrt{\gamma RT}
+\end{equation}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gamma</span> <span class="o">=</span> <span class="mf">1.4</span>
+<span class="k">def</span> <span class="nf">sos</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">T</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">gamma</span><span class="o">*</span><span class="n">Rgas</span><span class="o">*</span><span class="n">temp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sosoa</span> <span class="o">=</span> <span class="n">sos</span><span class="p">(</span><span class="n">alt</span><span class="p">)</span><span class="o">.</span><span class="n">to_base_units</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aoasl</span> <span class="o">=</span> <span class="n">sosoa</span><span class="o">/</span><span class="n">a_SL</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">popsl</span><span class="p">,</span><span class="n">alt</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;z(km)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">totsl</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$p/p_</span><span class="si">{sl}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">muoa</span><span class="o">/</span><span class="n">mu_SL</span><span class="p">,</span><span class="n">alt</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\mu/\mu_</span><span class="si">{sl}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rhooa</span><span class="p">,</span><span class="n">alt</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$\rho/\rho_</span><span class="si">{sl}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">aoasl</span><span class="p">,</span><span class="n">alt</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$a/a_</span><span class="si">{sl}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/rblack/_dev/mmqprop/.venv/lib/python3.10/site-packages/matplotlib/cbook/__init__.py:1369: UnitStrippedWarning: The unit of the quantity is stripped when downcasting to ndarray.
+  return np.asarray(x, float)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x10dacafe0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/standard-atmosphere_39_2.png" src="../../_images/standard-atmosphere_39_2.png" />
+</div>
+</div>
+<p>That plot looks like the figure presented in Drela’s book.</p>
+<p>All of this code has been placed in a single class names <em>StdATm</em> which takes an altitude in meters, and returns the properties as a dictionary. We can nhand this function a ((numpy** array of altitudes is needed.))</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;../../..&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">mmqprop.StdAtm</span> <span class="kn">import</span> <span class="n">StdAtm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">StdAtm</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">alt</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">properties</span><span class="p">()</span><span class="o">.</span><span class="n">to_base_units</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table><tbody><tr><th>Magnitude</th><td style='text-align:left;'><pre>[340.28635940924806 336.4264294017341 332.52169613425247 328.5705622845788<br> 324.57133329995617 320.5222089073897 316.4212737383203 312.26648926341744<br> 308.055748153634 303.78859849338033 299.51085848795657 296.05485874338723<br> 295.2200783201163 295.189861971932 295.2092151466604 295.2377376573878<br> 295.2767797656028 295.3306529215055 295.4056689407437 295.5107644171532<br> 295.6581078131648 295.8631938025201 296.1437229133886 296.51673058968044<br> 296.9945254426535 297.58154863744613 298.27434839820313]</pre></td></tr><tr><th>Units</th><td style='text-align:left;'>meter/second</td></tr></tbody></table></div></div>
+</div>
+<p>..literalinclude::  ../../mmqprop/StdAtm.py</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/appendix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="installing-basic-tools.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Basic Development Tools</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Roie R. Black<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

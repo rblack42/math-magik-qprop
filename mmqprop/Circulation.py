@@ -3,7 +3,7 @@ import math
 
 
 class Circulation(object):
-    """calculate local circulation for clade slice"""
+    """calculate local circulation for blade slice"""
 
     def __init__(
         self,
@@ -15,4 +15,4 @@ class Circulation(object):
         self.nblades = ctx.nblades
         self.tip_radius = ctx.tip_radius
         self.v_inf = ctx.v_inf
-        self.rpm = RPM * math.pi / 180.0
+        self.rpm = ctx.RPM * math.pi / 180.0

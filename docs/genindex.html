@@ -177,6 +177,11 @@ const thebe_selector_output = ".output, .cell_output"
    Basic Development Tools
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/appendix/standard-atmosphere.html">
+   Standard Atmosphere
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -323,18 +328,22 @@ title="Open an issue"
  | <a href="#N"><strong>N</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
  | <a href="#V"><strong>V</strong></a>
  
 </div>
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="content/development/api.html#mmqprop.Context.Context.airfoil">airfoil (mmqprop.Context.Context attribute)</a>
+      <li><a href="content/development/api.html#mmqprop.StdAtm.StdAtm.a">a() (mmqprop.StdAtm.StdAtm method)</a>
 </li>
-      <li><a href="content/development/api.html#mmqprop.Context.Context.airfoil_data">airfoil_data (mmqprop.Context.Context attribute)</a>
+      <li><a href="content/development/api.html#mmqprop.Context.Context.airfoil">airfoil (mmqprop.Context.Context attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="content/development/api.html#mmqprop.Context.Context.airfoil_data">airfoil_data (mmqprop.Context.Context attribute)</a>
+</li>
       <li><a href="content/development/api.html#mmqprop.EventLoop.CLI.app_debug">app_debug (mmqprop.EventLoop.CLI attribute)</a>
 </li>
       <li><a href="content/development/api.html#mmqprop.Context.Context.argcount">argcount (mmqprop.Context.Context attribute)</a>
@@ -450,13 +459,20 @@ title="Open an issue"
         <li><a href="content/development/api.html#module-mmqprop.Motor">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     mmqprop.Propeller
 
       <ul>
         <li><a href="content/development/api.html#module-mmqprop.Propeller">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    mmqprop.StdAtm
+
+      <ul>
+        <li><a href="content/development/api.html#module-mmqprop.StdAtm">module</a>
 </li>
       </ul></li>
       <li><a href="content/development/api.html#mmqprop.Context.Context.model">model (mmqprop.Context.Context attribute)</a>
@@ -483,10 +499,14 @@ title="Open an issue"
 </li>
         <li><a href="content/development/api.html#module-mmqprop.Propeller">mmqprop.Propeller</a>
 </li>
+        <li><a href="content/development/api.html#module-mmqprop.StdAtm">mmqprop.StdAtm</a>
+</li>
       </ul></li>
       <li><a href="content/development/api.html#mmqprop.Motor.Motor">Motor (class in mmqprop.Motor)</a>
 </li>
       <li><a href="content/development/api.html#mmqprop.Context.Context.motorfile">motorfile (mmqprop.Context.Context attribute)</a>
+</li>
+      <li><a href="content/development/api.html#mmqprop.StdAtm.StdAtm.mu">mu() (mmqprop.StdAtm.StdAtm method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -506,6 +526,8 @@ title="Open an issue"
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="content/development/api.html#mmqprop.StdAtm.StdAtm.p">p() (mmqprop.StdAtm.StdAtm method)</a>
+</li>
       <li><a href="content/development/api.html#mmqprop.Motor.Motor.parse">parse() (mmqprop.Motor.Motor method)</a>
 
       <ul>
@@ -532,6 +554,8 @@ title="Open an issue"
 </li>
       <li><a href="content/development/api.html#mmqprop.Propeller.Propeller">Propeller (class in mmqprop.Propeller)</a>
 </li>
+      <li><a href="content/development/api.html#mmqprop.StdAtm.StdAtm.properties">properties() (mmqprop.StdAtm.StdAtm method)</a>
+</li>
       <li><a href="content/development/api.html#mmqprop.Context.Context.propfile">propfile (mmqprop.Context.Context attribute)</a>
 </li>
   </ul></td>
@@ -548,7 +572,29 @@ title="Open an issue"
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="content/development/api.html#mmqprop.StdAtm.StdAtm.rho">rho() (mmqprop.StdAtm.StdAtm method)</a>
+</li>
       <li><a href="content/development/api.html#mmqprop.EventLoop.CLI.run">run() (mmqprop.EventLoop.CLI method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="content/development/api.html#mmqprop.StdAtm.StdAtm.sl_properties">sl_properties() (mmqprop.StdAtm.StdAtm method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="content/development/api.html#mmqprop.StdAtm.StdAtm">StdAtm (class in mmqprop.StdAtm)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="content/development/api.html#mmqprop.StdAtm.StdAtm.T">T() (mmqprop.StdAtm.StdAtm method)</a>
 </li>
   </ul></td>
 </tr></table>

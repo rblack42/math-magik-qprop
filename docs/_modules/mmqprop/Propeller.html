@@ -314,14 +314,14 @@ title="Open an issue"
 <span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="kn">from</span> <span class="nn">.</span> <span class="n">file_io</span> <span class="kn">import</span> <span class="nn">load_data</span>
+<span class="kn">from</span> <span class="nn">.file_io</span> <span class="kn">import</span> <span class="n">load_data</span>
 
 
 <div class="viewcode-block" id="Propeller"><a class="viewcode-back" href="../../content/development/api.html#mmqprop.Propeller.Propeller">[docs]</a><span class="k">class</span> <span class="nc">Propeller</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Load standard QPROP propeller file from data dir&#39;&#39;&#39;</span>
+    <span class="sd">&quot;&quot;&quot;Load standard QPROP propeller file from data dir&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;data/default_prop&#39;</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;set propfile name and initial data values&#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="s2">&quot;data/default_prop&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;set propfile name and initial data values&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rdata</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">debug</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">runfile</span> <span class="o">=</span> <span class="kc">None</span>
@@ -343,20 +343,17 @@ title="Open an issue"
             <span class="bp">self</span><span class="o">.</span><span class="n">nblades</span> <span class="o">=</span> <span class="n">dline</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dline</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">dline</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-            <span class="n">pline</span> <span class="o">=</span> <span class="mi">0</span>
 
             <span class="c1"># load base properties -----------</span>
             <span class="c1"># read CL0 and CL_a</span>
             <span class="n">dline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rdata</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
             <span class="n">cl0b</span> <span class="o">=</span> <span class="n">dline</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">clab</span> <span class="o">=</span> <span class="n">dline</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-            <span class="n">pline</span> <span class="o">=</span> <span class="mi">1</span>
 
             <span class="c1"># read CLMIN and CLMAX</span>
             <span class="n">dline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rdata</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
             <span class="n">clminb</span> <span class="o">=</span> <span class="n">dline</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">clmaxb</span> <span class="o">=</span> <span class="n">dline</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-            <span class="n">pline</span> <span class="o">=</span> <span class="mi">2</span>
 
             <span class="c1"># read CL/CD quadratic params</span>
             <span class="n">dline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rdata</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
@@ -364,27 +361,23 @@ title="Open an issue"
             <span class="n">cd2ub</span> <span class="o">=</span> <span class="n">dline</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
             <span class="n">cd2lb</span> <span class="o">=</span> <span class="n">dline</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
             <span class="n">clcd0b</span> <span class="o">=</span> <span class="n">dline</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-            <span class="n">pline</span> <span class="o">=</span> <span class="mi">3</span>
 
             <span class="c1"># read REREF and REEXP</span>
             <span class="n">dline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rdata</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
             <span class="n">rerefb</span> <span class="o">=</span> <span class="n">dline</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">reexpb</span> <span class="o">=</span> <span class="n">dline</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-            <span class="n">pline</span> <span class="o">=</span> <span class="mi">4</span>
 
             <span class="c1"># Read scaling factors (1)</span>
             <span class="n">dline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rdata</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">rfac</span> <span class="o">=</span> <span class="n">dline</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cfac</span> <span class="o">=</span> <span class="n">dline</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">bfac</span> <span class="o">=</span> <span class="n">dline</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-            <span class="n">pline</span> <span class="o">=</span> <span class="mi">5</span>
 
             <span class="c1"># Read scaling factors (2)</span>
             <span class="n">dline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rdata</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">radd</span> <span class="o">=</span> <span class="n">dline</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cadd</span> <span class="o">=</span> <span class="n">dline</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">badd</span> <span class="o">=</span> <span class="n">dline</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-            <span class="n">pline</span> <span class="o">=</span> <span class="mi">6</span>
 
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;base props complete&quot;</span><span class="p">)</span>
@@ -395,7 +388,7 @@ title="Open an issue"
             <span class="n">beta</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="n">exdata</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rdata</span><span class="p">[</span><span class="mi">7</span><span class="p">:]:</span>
-                <span class="n">pline</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">pline</span> <span class="o">=</span> <span class="mi">7</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;processing line:&quot;</span><span class="p">,</span> <span class="n">pline</span><span class="p">)</span>
                 <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -444,18 +437,11 @@ title="Open an issue"
                 <span class="c1"># save props for this bld=ade section</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;...done&quot;</span><span class="p">)</span>
-                <span class="n">props</span> <span class="o">=</span> <span class="p">[</span>
-                    <span class="n">cl0</span><span class="p">,</span>
-                    <span class="n">cla</span><span class="p">,</span>
-                    <span class="n">clmin</span><span class="p">,</span>
-                    <span class="n">clmax</span><span class="p">,</span>
-                    <span class="n">cd0</span><span class="p">,</span>
-                    <span class="n">cd2u</span><span class="p">,</span>
-                    <span class="n">cd2l</span><span class="p">,</span>
-                    <span class="n">clcd0</span><span class="p">,</span>
-                    <span class="n">reref</span><span class="p">,</span>
-                    <span class="n">reexp</span>
-                <span class="p">]</span>
+                <span class="n">props</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">props</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">cl0</span><span class="p">,</span> <span class="n">cla</span><span class="p">,</span> <span class="n">clmin</span><span class="p">,</span> <span class="n">clmax</span><span class="p">])</span>
+                <span class="n">props</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">cd0</span><span class="p">,</span> <span class="n">cd2u</span><span class="p">,</span> <span class="n">cd2l</span><span class="p">,</span> <span class="n">clcd0</span><span class="p">])</span>
+                <span class="n">props</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">reref</span><span class="p">,</span> <span class="n">reexp</span><span class="p">])</span>
+
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
                 <span class="n">exdata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
@@ -485,15 +471,15 @@ title="Open an issue"
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BETA:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PROPS:&quot;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span></div>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Propeller.prepare"><a class="viewcode-back" href="../../content/development/api.html#mmqprop.Propeller.Propeller.prepare">[docs]</a>    <span class="k">def</span> <span class="nf">prepare</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;use splines to henerate fine grid of data&#39;&#39;&#39;</span></div></div>
- 
+        <span class="sd">&quot;&quot;&quot;use splines to henerate fine grid of data&quot;&quot;&quot;</span></div></div>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;../data&#39;</span>
-    <span class="n">pname</span> <span class="o">=</span> <span class="s1">&#39;gcam6x3f&#39;</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;../data&quot;</span>
+    <span class="n">pname</span> <span class="o">=</span> <span class="s2">&quot;gcam6x3f&quot;</span>
     <span class="n">pfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">pname</span><span class="p">)</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">Propeller</span><span class="p">(</span><span class="n">pfile</span><span class="p">)</span>
     <span class="n">p</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>

@@ -19,3 +19,4 @@ parts:
   - caption: Appendix
     chapters:
       - file: content/appendix/installing-basic-tools
+      - file: content/appendix/standard-atmosphere

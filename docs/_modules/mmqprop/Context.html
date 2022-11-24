@@ -313,14 +313,15 @@ title="Open an issue"
   <h1>Source code for mmqprop.Context</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Context.py</span>
 
+
 <div class="viewcode-block" id="Context"><a class="viewcode-back" href="../../content/development/api.html#mmqprop.Context.Context">[docs]</a><span class="k">class</span> <span class="nc">Context</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;manages data passed between commands&quot;&quot;&quot;</span>
 
     <span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;hodson-wart&quot;</span>
-    <span class="n">airfoil</span> <span class="o">=</span> <span class="s2">&quot;simplex&quot;</span>             <span class="c1"># default airfoil passed to XFoil</span>
-    <span class="n">propfile</span> <span class="o">=</span> <span class="s2">&quot;default_prop&quot;</span>       <span class="c1"># default prop file in data dir</span>
-    <span class="n">motorfile</span> <span class="o">=</span> <span class="s2">&quot;default_motor&quot;</span>     <span class="c1"># default motorfile in data dir</span>
-    <span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>               <span class="c1"># directory holding data files</span>
+    <span class="n">airfoil</span> <span class="o">=</span> <span class="s2">&quot;simplex&quot;</span>  <span class="c1"># default airfoil passed to XFoil</span>
+    <span class="n">propfile</span> <span class="o">=</span> <span class="s2">&quot;default_prop&quot;</span>  <span class="c1"># default prop file in data dir</span>
+    <span class="n">motorfile</span> <span class="o">=</span> <span class="s2">&quot;default_motor&quot;</span>  <span class="c1"># default motorfile in data dir</span>
+    <span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>  <span class="c1"># directory holding data files</span>
     <span class="n">airfoil_data</span> <span class="o">=</span> <span class="p">()</span>
     <span class="n">model_data</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">argcount</span> <span class="o">=</span> <span class="mi">0</span>

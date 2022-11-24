@@ -68,3 +68,15 @@ Next, we process a motor data file
 
 ..  automodule::    mmqprop.Motor
     :members:
+    
+Circulation
+...........
+
+..  automodule:::  mmqprop.Circulation
+    :members:
+    
+Standard Atmosphere Model
+-------------------------
+
+..  automodule:: mmqprop.StdAtm
+    :members:

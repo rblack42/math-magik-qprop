@@ -1,6 +1,6 @@
 from mmqprop.EventLoop import CLI
 
 
-def cli():
-    e = CLI()
+def cli(debug):
+    e = CLI(debug)
     e.run()
