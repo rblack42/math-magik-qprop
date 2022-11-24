@@ -5,4 +5,5 @@ MK	:= mk
 -include $(MK)/help.mk
 -include $(MK)/python.mk
 -include $(MK)/jupyter.mk
+-include $(MK)/qprop.mk
 

@@ -1,3 +1,7 @@
+* 2022-11-23: black, flake8  reformatting
+* 2022-11-23: updated code docs
+* 2022-11-23: added qprop data file input code
+* 2022-11-23: updated change log
 * 2022-11-23: autodoc working
 * 2022-11-21: initial documentation setup
 * 2022-11-21: initial project commit

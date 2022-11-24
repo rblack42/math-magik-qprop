@@ -13,3 +13,6 @@ __pycache__
 # docs
 book/_build
 ./**/.ipynb_checkpoints
+
+# Fortran
+*.o
